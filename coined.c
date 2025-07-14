@@ -1105,14 +1105,11 @@ int main(int argc, char *argv[]) {
     double densidade=(1.0*C->nnz)/((1L * C->nrow) * C->nrow) * 100;
     printf("arquivo de entrada: %s\n", arqEntrada);
     
-    /*
-
     labelComputeU="algebra via  libC: permute_and_multiply; smatrix_vector_mult, computeU = 1; true \n";
     printf("numMaxThrs= %d, N= %d, nnz= %d, densidade= %6.4f %%, exe,",numMaxThrs, C->nrow, C->nnz, densidade );
     printf(" %s", labelComputeU);
     printf(" em main: simulateLibC(S, C, U, v);\n");
     simulateLibC(S, C, U, v);
-    */
     
     labelComputeU="algebra via   MKL: U=mkl_sparse_spmm(S_, C_); y=mkl_sparse_spmv(U, x), computeU = 1; true\n";
     printf("numMaxThrs= %d, N= %d, nnz= %d, densidade= %6.4f %%, exe,",numMaxThrs, C->nrow, C->nnz, densidade );
