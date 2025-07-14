@@ -1,5 +1,5 @@
-MKLROOT=/usr/lib/x86_64-linux-gnu
 MKLROOT=${ONEAPI_ROOT}/mkl/2025.0
+MKLROOT=/usr/lib/x86_64-linux-gnu
 
 #${ONEAPI_ROOT}/2025.0/include
 
@@ -9,8 +9,8 @@ LIBSI="   -L${MKLROOT} \
     -lmkl_intel_lp64 -lmkl_core -lmkl_intel_thread  -liomp5  -lpthread -lm -ldl"
 LIBS=$LIBSI
 
-#INC="-I/usr/include/mkl"
 INC="$MKLROOT/include"
+INC="/usr/include/mkl"
 
 SUF=G; CC=gcc; CFLAGS="-c -I$INC -fPIC -std=c11     -Ofast -fopenmp"; LFLAGS="-fopenmp"
 LIBS="$LIBSG $LIBSI"
