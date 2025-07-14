@@ -577,11 +577,6 @@ for(g = 1; g <= REPETICOESG; g++){
     printf("Tempo de %d iteracoes     : %.6f s\n", (REPETICOESG)*REPETICOES*numIterations,  tempo_decorridoI);
     printf("Tempo medio por iteracao  : %.6f s\n", tempo_decorridoI / (REPETICOESG * REPETICOES * numIterations));
 
-    double densidade=(1.0*U->nnz)/((1L * U->nrow) * U->nrow) * 100;
-    printf("arquivo de entrada: %s\n", arqEntrada);
-    printf("N = %d, nnz = %d, densidade = %7.4f %%, computeU = %s \n", C->nrow, C->nnz, densidade,  computeU ? "true" : "false" );
-    printf("%s",labelComputeU);
-
          #pragma omp parallel for schedule(guided)
          for (int i = 0; i < v_B->len; i++){
                                  v_B->value.f[aux*i]  =0.;
@@ -1116,7 +1111,6 @@ int main(int argc, char *argv[]) {
     printf(" %s", labelComputeU);
     printf(" em main: simulateMKL (S, C, U, v);\n");
     simulateMKL (S, C, U, v);
-
 
     return 0;
 
